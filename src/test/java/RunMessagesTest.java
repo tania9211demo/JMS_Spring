@@ -1,43 +1,31 @@
 import config.ApplicationConfig;
-import consumer.SpringJmsConsumer;
-import handler.event.type.EventType;
-import handler.service.EventService;
-import org.apache.activemq.broker.BrokerFactory;
-import org.apache.activemq.broker.BrokerService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import producer.SpringJmsProducer;
-
-import java.net.URI;
-import java.net.URISyntaxException;
+import org.springframework.test.context.web.WebAppConfiguration;
+import send.SpringJmsProducer;
 
 /**
  * Created by tatiana.biliaieva on 4/29/2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
 @ContextConfiguration(classes = ApplicationConfig.class)
 public class RunMessagesTest {
+  private static final Logger logger = LoggerFactory
+      .getLogger(RunMessagesTest.class);
   @Autowired
   private SpringJmsProducer springJmsProducer;
-  @Autowired
-  private SpringJmsConsumer springJmsConsumer;
-  @Autowired
-  private EventService eventService;
 
   @Test
   public void run() throws Exception {
-    BrokerService brokerService = BrokerFactory.createBroker(new URI(
-        "broker:(tcp://localhost:61616)"));
-    brokerService.start();
-    springJmsProducer.sendMessage("Hi");
-    System.out.print("Message " + springJmsConsumer.receiveMessage());
+
+    System.out.print("OP");
+    // springJmsProducer.sendMessage("SECOND");
   }
 
-  @Test
-  public void listenEvent() {
-    eventService.publishEvent(EventType.FIRST);
-  }
 }

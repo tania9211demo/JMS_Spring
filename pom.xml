@@ -7,38 +7,138 @@
   <groupId>JMS_Spring</groupId>
   <artifactId>integration</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>4.2.5.RELEASE</version>
+      <version>4.2.6.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>4.2.5.RELEASE</version>
+      <version>4.2.6.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>4.2.6.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jms</artifactId>
-      <version>4.1.5.RELEASE</version>
+      <version>4.2.6.RELEASE</version>
     </dependency>
+
     <dependency>
       <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-all</artifactId>
-      <version>5.12.0</version>
+      <artifactId>activemq-spring</artifactId>
+      <version>5.13.3</version>
     </dependency>
+
+    <!-- <dependency>
+       <groupId>org.apache.activemq</groupId>
+       <artifactId>activemq-all</artifactId>
+       <version>5.13.3</version>
+     </dependency>-->
+
+    <!--<dependency>
+       <groupId>org.apache.activemq</groupId>
+       <artifactId>activemq-pool</artifactId>
+       <version>5.13.3</version>
+     </dependency>
+     <dependency>
+       <groupId>org.apache.activemq</groupId>
+       <artifactId>activemq-broker</artifactId>
+       <version>5.13.3</version>
+     </dependency>
+     <dependency>
+       <groupId>org.apache.activemq</groupId>
+       <artifactId>activemq-spring</artifactId>
+       <version>5.13.3</version>
+     </dependency>
+     <dependency>
+       <groupId>org.apache.activemq</groupId>
+       <artifactId>activemq-kahadb-store</artifactId>
+       <version>5.13.3</version>
+     </dependency>-->
+
+    <!--   <dependency>
+         <groupId>org.apache.activemq</groupId>
+         <artifactId>activemq-broker</artifactId>
+         <version>5.13.3</version>
+       </dependency>
+       <dependency>
+         <groupId>org.apache.activemq</groupId>
+         <artifactId>activemq-spring</artifactId>
+         <version>5.13.3</version>
+       </dependency>-->
+
+  <!--  <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-core</artifactId>
+      <version>5.7.0</version>
+    </dependency>-->
+
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>4.2.5.RELEASE</version>
+      <version>4.2.6.RELEASE</version>
     </dependency>
+
+    <!--<dependency>
+      <groupId>org.springframework.integration</groupId>
+      <artifactId>spring-integration-core</artifactId>
+      <version>4.2.6.RELEASE</version>
+    </dependency>-->
+  <!--  <dependency>
+      <groupId>org.springframework.integration</groupId>
+      <artifactId>spring-integration-jms</artifactId>
+      <version>4.2.6.RELEASE</version>
+    </dependency>-->
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
     </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.0-b01</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.21</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.9</version>
+    </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
