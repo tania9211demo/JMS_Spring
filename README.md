@@ -1,3 +1,9 @@
+#Description
+Project shows JMS integration with psring using ActiveMQ message brocker.
+By this url it is possibe to send message to a ActiveMQ.
+**http://localhost:8080/integration-1.0-SNAPSHOT/message/send?message=your_message**
+All messages would be handled by receiver.JmsMessageListener class.
+
 #Build instructions
 
 Just use Maven to build project:
