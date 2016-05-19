@@ -23,16 +23,11 @@ public class MessageConroller {
   @Autowired
   private EventService eventService;
 
-  @RequestMapping(value = {"/send"}, method = {RequestMethod.POST})
+  @RequestMapping(value = {"/send"}, method = {RequestMethod.GET})
   public ResponseEntity<String> send(@RequestParam("message") String message) throws Exception {
 
     eventService.publishEvent(message);
 
     return new ResponseEntity(message, HttpStatus.OK);
-  }
-
-  @RequestMapping(value = {"/receive"}, method = {RequestMethod.POST})
-  public ResponseEntity<String> receive() throws Exception {
-    return new ResponseEntity("LOl", HttpStatus.OK);
   }
 }
