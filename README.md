@@ -1,4 +1,5 @@
-Build instructions
+#Build instructions
+
 Just use Maven to build project:
 
-mvn clean install
+**mvn clean install**
